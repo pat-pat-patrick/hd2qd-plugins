@@ -1,0 +1,42 @@
+{
+  "format": 1,
+  "plugins": [
+    {
+      "file": "HD2QD.Settings.dll",
+      "title": "HD2 Mod Console",
+      "title_zh": "HD2 MOD 控制台",
+      "summary": "HD2 Mod Setting GUI's window: each mod's settings, with the enabled mods first.",
+      "summary_zh": "HD2 Mod Setting GUI 的设置窗口：编辑各 MOD 的设置，已启用的 MOD 列在前面。",
+      "author": "pat-pat-patrick",
+      "repository": "pat-pat-patrick/hd2-mod-setting-gui",
+      "asset": "HD2QD.Settings.dll",
+      "api": 1,
+      "versions": []
+    },
+    {
+      "file": "HD2QD.AssetCheck.dll",
+      "title": "Asset check",
+      "title_zh": "资源检查",
+      "summary": "Each enabled mod's models and textures against the game resources they replace, and their video memory.",
+      "summary_zh": "将各已启用 MOD 的模型与贴图与其所替换的原版资源对比，并估算显存占用。",
+      "author": "pat-pat-patrick",
+      "repository": "pat-pat-patrick/hd2qd-asset-check",
+      "asset": "HD2QD.AssetCheck.dll",
+      "api": 1,
+      "versions": []
+    },
+    {
+      "file": "HD2QD.License.dll",
+      "title": "Member licenses",
+      "title_zh": "会员授权",
+      "summary": "Signs in to a mod author's site for the mods that are available only to their members, and renews the license.",
+      "summary_zh": "为仅供作者会员使用的 MOD 登录作者的网站，并自动续期授权。",
+      "author": "pat-pat-patrick",
+      "repository": "pat-pat-patrick/hd2-mod-license",
+      "asset": "HD2QD.License.dll",
+      "api": 1,
+      "wanted_by_file": "hd2_license.json",
+      "versions": []
+    }
+  ]
+}
