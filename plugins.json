@@ -66,6 +66,22 @@
           "sha256": "dc3bf59fe68f9f2278f7b8247a8cead451b0918882c543906f384ddc4e5497c8"
         }
       ]
+    },
+    {
+      "file": "HD2QD.ResourceNames.dll",
+      "title": "Resource names",
+      "summary": "Downloads the resource name list from HD2SDK's repository, so conflicts name resources instead of giving their numbers. Needs HD2 Mod Quick Deploy 0.16.0 or later.",
+      "author": "pat-pat-patrick",
+      "repository": "pat-pat-patrick/hd2qd-resource-names",
+      "asset": "HD2QD.ResourceNames.dll",
+      "api": 2,
+      "versions": [
+        {
+          "version": "1.0.0",
+          "tag": "v1.0.0",
+          "sha256": "f39699fd416e9767c41ea7921d1990931c29cc4291722d6e17fbd7cb87cd4a09"
+        }
+      ]
     }
   ]
 }

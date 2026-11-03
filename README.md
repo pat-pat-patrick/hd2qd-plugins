@@ -12,6 +12,7 @@ built and released in its own repository, and [`plugins.json`](plugins.json) nam
 | Asset check: models and textures against the game's, and video memory | `HD2QD.AssetCheck.dll` | [1.2.0](https://github.com/pat-pat-patrick/hd2qd-asset-check/releases/tag/v1.2.0) | [hd2qd-asset-check](https://github.com/pat-pat-patrick/hd2qd-asset-check) |
 | Model repair: mod models made for an earlier version of the game, brought up to the current one | `HD2QD.Repatch.dll` | [1.1.0](https://github.com/pat-pat-patrick/hd2qd-repatch/releases/tag/v1.1.0) | [hd2qd-repatch](https://github.com/pat-pat-patrick/hd2qd-repatch) |
 | Member licenses: sign-in for mods available only to their author's members | `HD2QD.License.dll` | [1.3.0](https://github.com/pat-pat-patrick/hd2-mod-license/releases/tag/plugin-v1.3.0) | [hd2-mod-license](https://github.com/pat-pat-patrick/hd2-mod-license) |
+| Resource names: HD2SDK's resource name list, downloaded from its repository, so conflicts name resources (manager 0.16.0 or later) | `HD2QD.ResourceNames.dll` | [1.0.0](https://github.com/pat-pat-patrick/hd2qd-resource-names/releases/tag/v1.0.0) | [hd2qd-resource-names](https://github.com/pat-pat-patrick/hd2qd-resource-names) |
 
 They need HD2 Mod Quick Deploy 0.15.0 or later (plugin Api 2). None is installed by default. The
 list holds the manager's author's plugins only; any other plugin can still be added from its file.
@@ -96,6 +97,7 @@ the complete example in [example/](example).
 | 资源检查：模型与贴图和原版资源的对比，以及显存占用 | `HD2QD.AssetCheck.dll` | [1.2.0](https://github.com/pat-pat-patrick/hd2qd-asset-check/releases/tag/v1.2.0) | [hd2qd-asset-check](https://github.com/pat-pat-patrick/hd2qd-asset-check) |
 | 模型修复：将为旧版游戏制作的 MOD 模型更新为当前游戏的格式 | `HD2QD.Repatch.dll` | [1.1.0](https://github.com/pat-pat-patrick/hd2qd-repatch/releases/tag/v1.1.0) | [hd2qd-repatch](https://github.com/pat-pat-patrick/hd2qd-repatch) |
 | 会员授权：为仅供创作者会员使用的 MOD 登录 | `HD2QD.License.dll` | [1.3.0](https://github.com/pat-pat-patrick/hd2-mod-license/releases/tag/plugin-v1.3.0) | [hd2-mod-license](https://github.com/pat-pat-patrick/hd2-mod-license) |
+| 资源名称：从 HD2SDK 的仓库下载资源名称表，冲突中显示资源的名称（需要管理器 0.16.0 或更新） | `HD2QD.ResourceNames.dll` | [1.0.0](https://github.com/pat-pat-patrick/hd2qd-resource-names/releases/tag/v1.0.0) | [hd2qd-resource-names](https://github.com/pat-pat-patrick/hd2qd-resource-names) |
 
 需要 HD2 Mod Quick Deploy 0.15.0 或更新版本（插件接口 Api 2）。默认均不安装。列表只收录管理器创作者
 本人的插件；其他插件仍可从文件添加。
