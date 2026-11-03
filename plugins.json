@@ -9,6 +9,7 @@
       "repository": "pat-pat-patrick/hd2-mod-setting-gui",
       "asset": "HD2QD.Settings.dll",
       "api": 2,
+      "button": true,
       "versions": [
         {
           "version": "1.16.0",

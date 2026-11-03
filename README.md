@@ -41,9 +41,17 @@ settings folder, so a plugin added here shows in every copy of the manager witho
 | `asset` | The release asset to download. |
 | `api` | The contract version it speaks. |
 | `wanted_by_file` | Optional: the manager marks the mods that ship this file as needing the plugin. |
+| `button` | Optional: `true` gives the plugin a button in the manager's title bar, drawn with its own `app.ico`. Only a plugin listed here, whose installed file matches one of its `versions`, can have one. |
 | `versions` | Each released version: `{version, tag, sha256}`. The manager downloads the newest and checks it against `sha256`. |
 
-## Releasing a new version of an official plugin
+## Maintaining the list
+
+This section is for the maintainer of this repository, who is also the author of every plugin in
+it. No one else can add a plugin to the list or a version to a plugin: the manager reads the list
+only from this repository's `main`, and installs an official plugin only when its file matches a
+SHA-256 written here. Suggestions are welcome as issues or pull requests.
+
+To release a new version of an official plugin:
 
 1. Publish a release in the plugin's repository with the DLL attached under the name in `asset`.
 2. Add `{version, tag, sha256}` to the plugin's `versions` here: the release's tag, and the SHA-256
@@ -116,9 +124,16 @@ the complete example in [example/](example).
 | `asset` | 要下载的 release 附件。 |
 | `api` | 插件使用的接口版本。 |
 | `wanted_by_file` | 可选：带有此文件的 MOD 会被标记为需要该插件。 |
+| `button` | 可选：为 `true` 时，该插件在管理器标题栏有自己的按钮，图标为插件自带的 `app.ico`。只有列在这里、且已安装文件与其某个 `versions` 一致的插件才能有按钮。 |
 | `versions` | 每个已发布的版本：`{version, tag, sha256}`。管理器下载其中最新的版本，并按 `sha256` 核对。 |
 
-## 发布官方插件的新版本
+## 维护列表
+
+本节供本仓库的维护者使用，维护者也是列表中所有插件的创作者。其他人无法向列表加入插件，也无法为插件
+加入新版本：管理器只从本仓库的 `main` 读取列表，并且只有文件的 SHA-256 与这里记录的一致时，才会作为
+官方插件安装。欢迎通过 issue 或 pull request 提出建议。
+
+发布官方插件的新版本：
 
 1. 在插件自己的仓库发布 release，附件文件名与 `asset` 一致。
 2. 在本仓库该插件的 `versions` 中加入 `{version, tag, sha256}`：release 的标签，以及 GitHub 上该附件的

@@ -35,7 +35,7 @@
 | 成员 | 含义 |
 |---|---|
 | `Dictionary<string, object> ModNote(string modFolder, Dictionary<string, object> host)` | 在 MOD 行上显示的标记，或 `null`：`text`、`tip`（使用 `host["lang"]` 的语言）和 `colour`（`"Yellow"`、`"Blue"` 或 `"Muted"`）。管理器每次读取状态时对每个 MOD 调用一次，须保持开销很小。 |
-| `const string Icon` | 仅限 `"window"` 类型：Segoe Fluent Icons（Windows 10 上为 Segoe MDL2 Assets）中的一个字符，例如 `"\uE9E9"`。有此成员的插件会在管理器标题栏的插件按钮旁多一个按钮，点击即打开插件；玩家可在插件卡片上关闭该按钮。只建议玩家常用的插件提供。 |
+| `app.ico` | 不是类成员：插件自己的图标，即名为 `app.ico` 的嵌入资源（或同名的 WPF `Resource`）。官方列表为某个官方插件设置按钮（`"button": true`）时，管理器用它绘制标题栏按钮；其他插件没有标题栏按钮。 |
 | `static readonly string[][] Commands` | 添加到命令行的命令，每行为 `[名称, 说明]`。与管理器自身命令重名的会被忽略。 |
 | `int Run(string command, string[] args, TextWriter output, Dictionary<string, object> host)` | 运行 `Commands` 中的命令：`0` 完成，`1` 拒绝，`2` 命令行有误。抛出的异常按拒绝处理。 |
 | `bool Start(Dictionary<string, object> host)` | 窗口启动时在后台运行一次（续期、缓存等）。需要管理器重新读取状态时返回 `true`。 |
