@@ -1,0 +1,8 @@
+{
+  "title": "Example plugin",
+  "summary": "Lists the enabled mods and how many patch archives each deploys.",
+  "archives": "{0} patch archives",
+  "archives_1": "1 patch archive",
+  "note": "Example",
+  "note_tip": "This mod ships example_note.txt."
+}

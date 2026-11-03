@@ -8,7 +8,7 @@
       "author": "pat-pat-patrick",
       "repository": "pat-pat-patrick/hd2-mod-setting-gui",
       "asset": "HD2QD.Settings.dll",
-      "api": 1,
+      "api": 2,
       "versions": []
     },
     {
@@ -18,7 +18,7 @@
       "author": "pat-pat-patrick",
       "repository": "pat-pat-patrick/hd2qd-asset-check",
       "asset": "HD2QD.AssetCheck.dll",
-      "api": 1,
+      "api": 2,
       "versions": []
     },
     {
@@ -28,7 +28,7 @@
       "author": "pat-pat-patrick",
       "repository": "pat-pat-patrick/hd2qd-repatch",
       "asset": "HD2QD.Repatch.dll",
-      "api": 1,
+      "api": 2,
       "versions": []
     },
     {
@@ -38,7 +38,7 @@
       "author": "pat-pat-patrick",
       "repository": "pat-pat-patrick/hd2-mod-license",
       "asset": "HD2QD.License.dll",
-      "api": 1,
+      "api": 2,
       "wanted_by_file": "hd2_license.json",
       "versions": []
     }

@@ -1,0 +1,7 @@
+{
+  "title": "示例插件",
+  "summary": "列出已启用的 MOD 及其 patch 文件数量。",
+  "archives": "{0} 个 patch 文件",
+  "note": "示例",
+  "note_tip": "此 MOD 带有 example_note.txt。"
+}

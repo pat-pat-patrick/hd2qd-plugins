@@ -20,10 +20,10 @@ anything of the plugin runs, so `Api` must be a `const`.
 
 | Member | Type | Meaning |
 |---|---|---|
-| `Api` | `const int` | The contract's version: `1`. A plugin of another version is refused. |
+| `Api` | `const int` | The contract's version: `2`. A plugin of another version is refused. |
 | `Kind` | `const string` | `"window"` or `"panel"` (below). |
-| `Title(bool zh)` | `string` | The plugin's name, in Chinese when `zh`. |
-| `Summary(bool zh)` | `string` | One sentence on what it does. |
+| `Title(string lang)` | `string` | The plugin's name in the language `lang` (see [Languages](#languages)). |
+| `Summary(string lang)` | `string` | One sentence on what it does, in `lang`. |
 
 ### By kind
 
@@ -36,7 +36,7 @@ anything of the plugin runs, so `Api` must be a `const`.
 
 | Member | Meaning |
 |---|---|
-| `Dictionary<string, object> ModNote(string modFolder, Dictionary<string, object> host)` | A word on a mod's row, or `null`: `text`, `text_zh`, `tip`, `tip_zh`, `colour` (`"Yellow"`, `"Blue"` or `"Muted"`). Called for every mod whenever the manager reads its state, so it must be cheap. |
+| `Dictionary<string, object> ModNote(string modFolder, Dictionary<string, object> host)` | A word on a mod's row, or `null`: `text`, `tip` (in `host["lang"]`) and `colour` (`"Yellow"`, `"Blue"` or `"Muted"`). Called for every mod whenever the manager reads its state, so it must be cheap. |
 | `static readonly string[][] Commands` | Commands added to the command line, as rows of `[name, help]`. A name the manager has itself is left out. |
 | `int Run(string command, string[] args, TextWriter output, Dictionary<string, object> host)` | Runs one of `Commands`: `0` done, `1` refused, `2` a wrong command line. An exception is reported as a refusal. |
 | `bool Start(Dictionary<string, object> host)` | Runs once in the background when the window starts (a renewal, a cache). Return `true` when the manager should read its state again. |
@@ -50,7 +50,7 @@ Every call gets the same dictionary.
 | `api` | `long` | The contract's version. |
 | `home` | `string` | The manager's settings folder. Keep the plugin's own files there. |
 | `appdata` | `string` | The player's roaming AppData (the game's `Arrowhead\Helldivers2`). |
-| `zh` | `bool` | The window's language is Chinese. |
+| `lang` | `string` | The language the manager shows, as a language tag (see [Languages](#languages)). The command line is `"en"`. |
 | `data` | `string` | The game's `data` folder; `null` when no game folder is set. |
 | `mods` | `Func<List<Dictionary<string, object>>>` | The enabled mods in load order, each `{name, archives}`: the patch archives it deploys. The last mod to load wins a resource two mods ship. |
 | `library` | `Func<List<Dictionary<string, object>>>` | Every mod in the library, each `{name, path, enabled, settings}`; `settings` are the HD2 Mod Setting GUI lists its Lua writes. It may read archives: call it off the UI thread. |
@@ -69,9 +69,25 @@ The manager's application carries its styles and colours. A panel or window can 
 `Application.Current.TryFindResource`: the styles `Ghost` and `Primary`; the brushes `Ink`,
 `Muted`, `Yellow`, `Blue`, `Grid`, `Ground700`, `Ground900`.
 
+## Languages
+
+The manager names a language by its tag ([BCP 47](https://www.rfc-editor.org/info/bcp47)): `en`,
+`zh-CN`, `de`, `pt-BR`. It passes the tag to `Title` and `Summary`, and as `host["lang"]` to every
+other call. The plugin answers in that language when it has it, and in English otherwise.
+
+- Keep each language's text in a file of its own, never as pairs of fields or a switch between
+  two languages. Adding a language must be adding one file.
+- English is the language every plugin has; any text missing in another language falls back to it.
+- Look a tag up exactly first, then by its language alone (`de` for `de-AT`), then English.
+- A text with a count can have a second key ending in `_1`, the form for exactly one, in the
+  languages that need it.
+
+The example keeps `Lang/en.json` and `Lang/zh-CN.json` (a flat object of keys and texts) as
+embedded resources and reads them with `Words` ([`example/Words.cs`](../example/Words.cs)).
+
 ## Rules
 
-- Write the text a player reads in a formal register, in both English and Chinese.
+- Write the text a player reads in a formal register. English is required; each other language is a file of its own.
 - Never block the window: read files and the network off the UI thread.
 - A plugin runs with the manager's permissions. Read and write only what the plugin needs.
 - The official list ([`plugins.json`](../plugins.json)) holds the manager's author's plugins only.

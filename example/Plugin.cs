@@ -14,44 +14,43 @@ namespace Hd2Qd.Example
     public static class Plugin
     {
         /// <summary>The contract's version. A plugin of another one is refused.</summary>
-        public const int Api = 1;
+        public const int Api = 2;
 
         /// <summary>"window": a window of its own, opened from the card (Open). "panel": the
         /// plugin draws the card's body on the Plugins page (Panel).</summary>
         public const string Kind = "window";
 
-        public static string Title(bool zh) => zh ? "示例插件" : "Example plugin";
+        /// <summary>In lang, a language tag ("en", "zh-CN"): the text comes from that language's
+        /// file, else English (Words).</summary>
+        public static string Title(string lang) => Words.Get(lang, "title");
 
-        public static string Summary(bool zh) => zh
-            ? "列出已启用的 MOD 及其 patch 文件数量。"
-            : "Lists the enabled mods and how many patch archives each deploys.";
+        public static string Summary(string lang) => Words.Get(lang, "summary");
 
         /// <summary>Kind "window": the card's Open. host["window"](title, content) makes a window
         /// with the manager's own frame; host["mods"]() gives the enabled mods in load order.</summary>
         public static void Open(Window owner, Dictionary<string, object> host)
         {
-            bool zh = host["zh"] is bool z && z;
+            var lang = Words.Lang(host);
             var mods = ((Func<List<Dictionary<string, object>>>)host["mods"])();
             var list = new StackPanel { Margin = new Thickness(24) };
             foreach (var m in mods)
                 list.Children.Add(new TextBlock
                 {
-                    Text = m["name"] + "  ·  " + ((List<object>)m["archives"]).Count + (zh ? " 个 patch 文件" : " patch archive(s)"),
+                    Text = m["name"] + "  ·  " + Words.F(lang, "archives", ((List<object>)m["archives"]).Count),
                     Margin = new Thickness(0, 4, 0, 4),
                 });
             var make = (Func<string, FrameworkElement, Window>)host["window"];
-            make(Title(zh), new ScrollViewer { Content = list }).Show();
+            make(Title(lang), new ScrollViewer { Content = list }).Show();
         }
 
-        /// <summary>Optional: a word on a mod's row, or null. Both languages; colour is "Yellow",
+        /// <summary>Optional: a word on a mod's row, or null, in host["lang"]; colour is "Yellow",
         /// "Blue" or "Muted". Called for every mod whenever the manager reads its state: keep it
         /// cheap.</summary>
         public static Dictionary<string, object> ModNote(string modFolder, Dictionary<string, object> host) =>
             File.Exists(Path.Combine(modFolder, "example_note.txt"))
                 ? new Dictionary<string, object>
                 {
-                    ["text"] = "Example", ["text_zh"] = "示例",
-                    ["tip"] = "This mod ships example_note.txt.", ["tip_zh"] = "此 MOD 带有 example_note.txt。",
+                    ["text"] = Words.Get(Words.Lang(host), "note"), ["tip"] = Words.Get(Words.Lang(host), "note_tip"),
                     ["colour"] = "Blue",
                 }
                 : null;
