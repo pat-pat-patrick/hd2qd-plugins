@@ -37,6 +37,7 @@ anything of the plugin runs, so `Api` must be a `const`.
 | Member | Meaning |
 |---|---|
 | `Dictionary<string, object> ModNote(string modFolder, Dictionary<string, object> host)` | A word on a mod's row, or `null`: `text`, `tip` (in `host["lang"]`) and `colour` (`"Yellow"`, `"Blue"` or `"Muted"`). Called for every mod whenever the manager reads its state, so it must be cheap. |
+| `const string Icon` | For a `"window"` plugin: one character of Segoe Fluent Icons (Segoe MDL2 Assets on Windows 10), such as `"\uE9E9"`. The plugin then has a button in the manager's title bar, beside the Plugins button, which opens it; the player can take the button away on the plugin's card. Give one only to a plugin players open often. |
 | `static readonly string[][] Commands` | Commands added to the command line, as rows of `[name, help]`. A name the manager has itself is left out. |
 | `int Run(string command, string[] args, TextWriter output, Dictionary<string, object> host)` | Runs one of `Commands`: `0` done, `1` refused, `2` a wrong command line. An exception is reported as a refusal. |
 | `bool Start(Dictionary<string, object> host)` | Runs once in the background when the window starts (a renewal, a cache). Return `true` when the manager should read its state again. |
