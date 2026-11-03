@@ -17,6 +17,6 @@
   },
   "HD2QD.ResourceNames.dll": {
     "title": "资源名称",
-    "summary": "从 HD2SDK 的仓库下载资源名称表，冲突中显示资源的名称，而不是编号。需要 HD2 Mod Quick Deploy 0.16.0 或更新版本。"
+    "summary": "从 HD2SDK 的仓库下载资源名称表和游戏包名称表，冲突和资源检查中显示资源的名称，而不是编号。需要 HD2 Mod Quick Deploy 0.16.0 或更新版本。"
   }
 }
