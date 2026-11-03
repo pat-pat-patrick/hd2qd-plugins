@@ -41,6 +41,11 @@
           "version": "1.4.0",
           "tag": "v1.4.0",
           "sha256": "dad4583fb5f3517f6b46b8b8c3acd46dd772bf9571095d63a94a77242b0347be"
+        },
+        {
+          "version": "1.4.1",
+          "tag": "v1.4.1",
+          "sha256": "e1caba7de0cf5618909c960f909c664061b95de9baebd52028401efa8c7e89e3"
         }
       ]
     },

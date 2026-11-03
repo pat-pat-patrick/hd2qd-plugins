@@ -9,7 +9,7 @@ built and released in its own repository, and [`plugins.json`](plugins.json) nam
 | Plugin | File | Version | Repository |
 |---|---|---|---|
 | HD2 Mod Console: each mod's settings, the enabled mods first | `HD2QD.Settings.dll` | [1.16.0](https://github.com/pat-pat-patrick/hd2-mod-setting-gui/releases/tag/v1.16.0) | [hd2-mod-setting-gui](https://github.com/pat-pat-patrick/hd2-mod-setting-gui) |
-| Asset check: models and textures against the game's, and video memory | `HD2QD.AssetCheck.dll` | [1.4.0](https://github.com/pat-pat-patrick/hd2qd-asset-check/releases/tag/v1.4.0) | [hd2qd-asset-check](https://github.com/pat-pat-patrick/hd2qd-asset-check) |
+| Asset check: models and textures against the game's, and video memory | `HD2QD.AssetCheck.dll` | [1.4.1](https://github.com/pat-pat-patrick/hd2qd-asset-check/releases/tag/v1.4.1) | [hd2qd-asset-check](https://github.com/pat-pat-patrick/hd2qd-asset-check) |
 | Model repair: mod models made for an earlier version of the game, brought up to the current one | `HD2QD.Repatch.dll` | [1.1.0](https://github.com/pat-pat-patrick/hd2qd-repatch/releases/tag/v1.1.0) | [hd2qd-repatch](https://github.com/pat-pat-patrick/hd2qd-repatch) |
 | Member licenses: sign-in for mods available only to their author's members | `HD2QD.License.dll` | [1.3.0](https://github.com/pat-pat-patrick/hd2-mod-license/releases/tag/plugin-v1.3.0) | [hd2-mod-license](https://github.com/pat-pat-patrick/hd2-mod-license) |
 | Resource names: HD2SDK's resource and game archive name lists, downloaded from its repository, so conflicts and the asset check name resources (manager 0.16.0 or later) | `HD2QD.ResourceNames.dll` | [1.1.0](https://github.com/pat-pat-patrick/hd2qd-resource-names/releases/tag/v1.1.0) | [hd2qd-resource-names](https://github.com/pat-pat-patrick/hd2qd-resource-names) |
@@ -94,7 +94,7 @@ the complete example in [example/](example).
 | 插件 | 文件 | 版本 | 仓库 |
 |---|---|---|---|
 | HD2 MOD 控制台：编辑各 MOD 的设置，已启用的 MOD 列在前面 | `HD2QD.Settings.dll` | [1.16.0](https://github.com/pat-pat-patrick/hd2-mod-setting-gui/releases/tag/v1.16.0) | [hd2-mod-setting-gui](https://github.com/pat-pat-patrick/hd2-mod-setting-gui) |
-| 资源检查：模型与贴图和原版资源的对比，以及显存占用 | `HD2QD.AssetCheck.dll` | [1.4.0](https://github.com/pat-pat-patrick/hd2qd-asset-check/releases/tag/v1.4.0) | [hd2qd-asset-check](https://github.com/pat-pat-patrick/hd2qd-asset-check) |
+| 资源检查：模型与贴图和原版资源的对比，以及显存占用 | `HD2QD.AssetCheck.dll` | [1.4.1](https://github.com/pat-pat-patrick/hd2qd-asset-check/releases/tag/v1.4.1) | [hd2qd-asset-check](https://github.com/pat-pat-patrick/hd2qd-asset-check) |
 | 模型修复：将为旧版游戏制作的 MOD 模型更新为当前游戏的格式 | `HD2QD.Repatch.dll` | [1.1.0](https://github.com/pat-pat-patrick/hd2qd-repatch/releases/tag/v1.1.0) | [hd2qd-repatch](https://github.com/pat-pat-patrick/hd2qd-repatch) |
 | 会员授权：为仅供创作者会员使用的 MOD 登录 | `HD2QD.License.dll` | [1.3.0](https://github.com/pat-pat-patrick/hd2-mod-license/releases/tag/plugin-v1.3.0) | [hd2-mod-license](https://github.com/pat-pat-patrick/hd2-mod-license) |
 | 资源名称：从 HD2SDK 的仓库下载资源名称表和游戏包名称表，冲突和资源检查中显示资源的名称（需要管理器 0.16.0 或更新） | `HD2QD.ResourceNames.dll` | [1.1.0](https://github.com/pat-pat-patrick/hd2qd-resource-names/releases/tag/v1.1.0) | [hd2qd-resource-names](https://github.com/pat-pat-patrick/hd2qd-resource-names) |
