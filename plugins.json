@@ -9,7 +9,13 @@
       "repository": "pat-pat-patrick/hd2-mod-setting-gui",
       "asset": "HD2QD.Settings.dll",
       "api": 2,
-      "versions": []
+      "versions": [
+        {
+          "version": "1.16.0",
+          "tag": "v1.16.0",
+          "sha256": "ce58b1ab111429b8e95272cbc7e874318c71cdbdec5b032f90005c5241966188"
+        }
+      ]
     },
     {
       "file": "HD2QD.AssetCheck.dll",
@@ -19,7 +25,13 @@
       "repository": "pat-pat-patrick/hd2qd-asset-check",
       "asset": "HD2QD.AssetCheck.dll",
       "api": 2,
-      "versions": []
+      "versions": [
+        {
+          "version": "1.2.0",
+          "tag": "v1.2.0",
+          "sha256": "02c30d3020cda79bad3763e40148b1dfa8ba664fec8edc305f000ab226acbca9"
+        }
+      ]
     },
     {
       "file": "HD2QD.Repatch.dll",
@@ -29,7 +41,13 @@
       "repository": "pat-pat-patrick/hd2qd-repatch",
       "asset": "HD2QD.Repatch.dll",
       "api": 2,
-      "versions": []
+      "versions": [
+        {
+          "version": "1.1.0",
+          "tag": "v1.1.0",
+          "sha256": "0d0b302b32e5b821e6589e26c12de15cf3c6cb19388bc1bd62f6b4e1363b357a"
+        }
+      ]
     },
     {
       "file": "HD2QD.License.dll",
@@ -40,7 +58,13 @@
       "asset": "HD2QD.License.dll",
       "api": 2,
       "wanted_by_file": "hd2_license.json",
-      "versions": []
+      "versions": [
+        {
+          "version": "1.3.0",
+          "tag": "plugin-v1.3.0",
+          "sha256": "dc3bf59fe68f9f2278f7b8247a8cead451b0918882c543906f384ddc4e5497c8"
+        }
+      ]
     }
   ]
 }
