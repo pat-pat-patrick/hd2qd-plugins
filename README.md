@@ -10,6 +10,7 @@ built and released in its own repository, and [`plugins.json`](plugins.json) nam
 |---|---|---|
 | HD2 Mod Console: each mod's settings, the enabled mods first | `HD2QD.Settings.dll` | [hd2-mod-setting-gui](https://github.com/pat-pat-patrick/hd2-mod-setting-gui) |
 | Asset check: models and textures against the game's, and video memory | `HD2QD.AssetCheck.dll` | hd2qd-asset-check |
+| Model repair: mod models made for an earlier version of the game, brought up to the current one | `HD2QD.Repatch.dll` | hd2qd-repatch |
 | Member licenses: sign-in for mods available only to their author's members | `HD2QD.License.dll` | hd2-mod-license |
 
 The list holds the manager's author's plugins only. Any other plugin can still be added by hand.
@@ -24,6 +25,9 @@ The list holds the manager's author's plugins only. Any other plugin can still b
 `hd2qd plugin-add <file>`, `hd2qd plugin-remove <name>`.
 
 ## `plugins.json`
+
+The manager reads this file from the `main` branch of this repository and keeps a copy in its
+settings folder, so a plugin added here shows in every copy of the manager without a new release.
 
 | Field | Meaning |
 |---|---|
@@ -54,6 +58,7 @@ the complete example in [example/](example).
 |---|---|---|
 | HD2 MOD 控制台：编辑各 MOD 的设置，已启用的 MOD 列在前面 | `HD2QD.Settings.dll` | [hd2-mod-setting-gui](https://github.com/pat-pat-patrick/hd2-mod-setting-gui) |
 | 资源检查：模型与贴图和原版资源的对比，以及显存占用 | `HD2QD.AssetCheck.dll` | hd2qd-asset-check |
+| 模型修复：将为旧版游戏制作的 MOD 模型更新为当前游戏的格式 | `HD2QD.Repatch.dll` | hd2qd-repatch |
 | 会员授权：为仅供作者会员使用的 MOD 登录 | `HD2QD.License.dll` | hd2-mod-license |
 
 列表只收录管理器作者本人的插件。其他插件仍可手动添加。
@@ -68,6 +73,9 @@ the complete example in [example/](example).
 `hd2qd plugin-remove <名称>`。
 
 ## `plugins.json`
+
+管理器从本仓库的 `main` 分支读取此文件，并在设置目录中保留一份副本。因此在这里加入的插件，
+无需发布新版管理器即可显示。
 
 | 字段 | 含义 |
 |---|---|
