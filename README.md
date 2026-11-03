@@ -6,23 +6,27 @@ built and released in its own repository, and [`plugins.json`](plugins.json) nam
 
 ## Official plugins
 
-| Plugin | File | Repository |
-|---|---|---|
-| HD2 Mod Console: each mod's settings, the enabled mods first | `HD2QD.Settings.dll` | [hd2-mod-setting-gui](https://github.com/pat-pat-patrick/hd2-mod-setting-gui) |
-| Asset check: models and textures against the game's, and video memory | `HD2QD.AssetCheck.dll` | hd2qd-asset-check |
-| Model repair: mod models made for an earlier version of the game, brought up to the current one | `HD2QD.Repatch.dll` | hd2qd-repatch |
-| Member licenses: sign-in for mods available only to their author's members | `HD2QD.License.dll` | hd2-mod-license |
+| Plugin | File | Version | Repository |
+|---|---|---|---|
+| HD2 Mod Console: each mod's settings, the enabled mods first | `HD2QD.Settings.dll` | [1.16.0](https://github.com/pat-pat-patrick/hd2-mod-setting-gui/releases/tag/v1.16.0) | [hd2-mod-setting-gui](https://github.com/pat-pat-patrick/hd2-mod-setting-gui) |
+| Asset check: models and textures against the game's, and video memory | `HD2QD.AssetCheck.dll` | [1.2.0](https://github.com/pat-pat-patrick/hd2qd-asset-check/releases/tag/v1.2.0) | [hd2qd-asset-check](https://github.com/pat-pat-patrick/hd2qd-asset-check) |
+| Model repair: mod models made for an earlier version of the game, brought up to the current one | `HD2QD.Repatch.dll` | [1.1.0](https://github.com/pat-pat-patrick/hd2qd-repatch/releases/tag/v1.1.0) | [hd2qd-repatch](https://github.com/pat-pat-patrick/hd2qd-repatch) |
+| Member licenses: sign-in for mods available only to their author's members | `HD2QD.License.dll` | [1.3.0](https://github.com/pat-pat-patrick/hd2-mod-license/releases/tag/plugin-v1.3.0) | [hd2-mod-license](https://github.com/pat-pat-patrick/hd2-mod-license) |
 
-The list holds the manager's author's plugins only. Any other plugin can still be added by hand.
+They need HD2 Mod Quick Deploy 0.15.0 or later (plugin Api 2). None is installed by default. The
+list holds the manager's author's plugins only; any other plugin can still be added from its file.
 
 ## Adding a plugin
 
 1. In HD2 Mod Quick Deploy, open the Plugins page (the jigsaw piece beside the gear).
-2. Choose **Add plugin…** and select the plugin's `HD2QD.<name>.dll`, or drop the file on the page.
-3. Confirm. A plugin runs with the manager's permissions: add only plugins from a source you trust.
+2. An official plugin: choose **Download and add** on its card. The manager downloads the newest
+   release named in [`plugins.json`](plugins.json) and adds it only if its SHA-256 matches.
+3. Any other plugin: choose **Add plugin…** and select its `HD2QD.<name>.dll`, or drop the file on
+   the page.
+4. Confirm. A plugin runs with the manager's permissions: add only plugins from a source you trust.
 
 **Remove** on a plugin's card deletes it again. On the command line: `hd2qd plugins`,
-`hd2qd plugin-add <file>`, `hd2qd plugin-remove <name>`.
+`hd2qd plugin-add <name or file>` (a name downloads the official plugin), `hd2qd plugin-remove <name>`.
 
 ## `plugins.json`
 
@@ -37,7 +41,17 @@ settings folder, so a plugin added here shows in every copy of the manager witho
 | `asset` | The release asset to download. |
 | `api` | The contract version it speaks. |
 | `wanted_by_file` | Optional: the manager marks the mods that ship this file as needing the plugin. |
-| `versions` | Each released version: `{version, tag, sha256}`. The manager checks a download against `sha256`. |
+| `versions` | Each released version: `{version, tag, sha256}`. The manager downloads the newest and checks it against `sha256`. |
+
+## Releasing a new version of an official plugin
+
+1. Publish a release in the plugin's repository with the DLL attached under the name in `asset`.
+2. Add `{version, tag, sha256}` to the plugin's `versions` here: the release's tag, and the SHA-256
+   of the attached file as GitHub serves it.
+3. Push to `main`. Every copy of the manager offers the new version from then on; the manager
+   itself needs no release.
+
+Keep the format readable by the managers already released: add fields, never rename or remove one.
 
 ## Translations
 
@@ -68,23 +82,26 @@ the complete example in [example/](example).
 
 ## 官方插件
 
-| 插件 | 文件 | 仓库 |
-|---|---|---|
-| HD2 MOD 控制台：编辑各 MOD 的设置，已启用的 MOD 列在前面 | `HD2QD.Settings.dll` | [hd2-mod-setting-gui](https://github.com/pat-pat-patrick/hd2-mod-setting-gui) |
-| 资源检查：模型与贴图和原版资源的对比，以及显存占用 | `HD2QD.AssetCheck.dll` | hd2qd-asset-check |
-| 模型修复：将为旧版游戏制作的 MOD 模型更新为当前游戏的格式 | `HD2QD.Repatch.dll` | hd2qd-repatch |
-| 会员授权：为仅供作者会员使用的 MOD 登录 | `HD2QD.License.dll` | hd2-mod-license |
+| 插件 | 文件 | 版本 | 仓库 |
+|---|---|---|---|
+| HD2 MOD 控制台：编辑各 MOD 的设置，已启用的 MOD 列在前面 | `HD2QD.Settings.dll` | [1.16.0](https://github.com/pat-pat-patrick/hd2-mod-setting-gui/releases/tag/v1.16.0) | [hd2-mod-setting-gui](https://github.com/pat-pat-patrick/hd2-mod-setting-gui) |
+| 资源检查：模型与贴图和原版资源的对比，以及显存占用 | `HD2QD.AssetCheck.dll` | [1.2.0](https://github.com/pat-pat-patrick/hd2qd-asset-check/releases/tag/v1.2.0) | [hd2qd-asset-check](https://github.com/pat-pat-patrick/hd2qd-asset-check) |
+| 模型修复：将为旧版游戏制作的 MOD 模型更新为当前游戏的格式 | `HD2QD.Repatch.dll` | [1.1.0](https://github.com/pat-pat-patrick/hd2qd-repatch/releases/tag/v1.1.0) | [hd2qd-repatch](https://github.com/pat-pat-patrick/hd2qd-repatch) |
+| 会员授权：为仅供作者会员使用的 MOD 登录 | `HD2QD.License.dll` | [1.3.0](https://github.com/pat-pat-patrick/hd2-mod-license/releases/tag/plugin-v1.3.0) | [hd2-mod-license](https://github.com/pat-pat-patrick/hd2-mod-license) |
 
-列表只收录管理器作者本人的插件。其他插件仍可手动添加。
+需要 HD2 Mod Quick Deploy 0.15.0 或更新版本（插件接口 Api 2）。默认均不安装。列表只收录管理器作者
+本人的插件；其他插件仍可从文件添加。
 
 ## 添加插件
 
 1. 在 HD2 Mod Quick Deploy 中打开“插件”页（齿轮旁的拼图按钮）。
-2. 点击“添加插件…”，选择插件的 `HD2QD.<名称>.dll`，或将文件拖到插件页上。
-3. 确认添加。插件以管理器的权限运行，请仅添加来源可信的插件。
+2. 官方插件：在其卡片上点击**下载并添加**。管理器会下载 [`plugins.json`](plugins.json) 中记录的最新版本，
+   SHA-256 一致才会添加。
+3. 其他插件：点击“添加插件…”，选择其 `HD2QD.<名称>.dll`，或将文件拖到插件页上。
+4. 确认添加。插件以管理器的权限运行，请仅添加来源可信的插件。
 
-插件卡片上的“移除”可将其删除。命令行：`hd2qd plugins`、`hd2qd plugin-add <文件>`、
-`hd2qd plugin-remove <名称>`。
+插件卡片上的“移除”可将其删除。命令行：`hd2qd plugins`、`hd2qd plugin-add <名称或文件>`（给出名称时下载
+官方插件）、`hd2qd plugin-remove <名称>`。
 
 ## `plugins.json`
 
@@ -99,7 +116,16 @@ the complete example in [example/](example).
 | `asset` | 要下载的 release 附件。 |
 | `api` | 插件使用的接口版本。 |
 | `wanted_by_file` | 可选：带有此文件的 MOD 会被标记为需要该插件。 |
-| `versions` | 每个已发布的版本：`{version, tag, sha256}`。管理器下载后按 `sha256` 核对。 |
+| `versions` | 每个已发布的版本：`{version, tag, sha256}`。管理器下载其中最新的版本，并按 `sha256` 核对。 |
+
+## 发布官方插件的新版本
+
+1. 在插件自己的仓库发布 release，附件文件名与 `asset` 一致。
+2. 在本仓库该插件的 `versions` 中加入 `{version, tag, sha256}`：release 的标签，以及 GitHub 上该附件的
+   SHA-256。
+3. 推送到 `main`。此后所有管理器都会提供新版本，管理器本身无需发布新版。
+
+列表格式须保持已发布的管理器能够读取：只能新增字段，不要改名或删除字段。
 
 ## 翻译
 
