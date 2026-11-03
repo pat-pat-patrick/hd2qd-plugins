@@ -87,9 +87,9 @@ the complete example in [example/](example).
 | HD2 MOD 控制台：编辑各 MOD 的设置，已启用的 MOD 列在前面 | `HD2QD.Settings.dll` | [1.16.0](https://github.com/pat-pat-patrick/hd2-mod-setting-gui/releases/tag/v1.16.0) | [hd2-mod-setting-gui](https://github.com/pat-pat-patrick/hd2-mod-setting-gui) |
 | 资源检查：模型与贴图和原版资源的对比，以及显存占用 | `HD2QD.AssetCheck.dll` | [1.2.0](https://github.com/pat-pat-patrick/hd2qd-asset-check/releases/tag/v1.2.0) | [hd2qd-asset-check](https://github.com/pat-pat-patrick/hd2qd-asset-check) |
 | 模型修复：将为旧版游戏制作的 MOD 模型更新为当前游戏的格式 | `HD2QD.Repatch.dll` | [1.1.0](https://github.com/pat-pat-patrick/hd2qd-repatch/releases/tag/v1.1.0) | [hd2qd-repatch](https://github.com/pat-pat-patrick/hd2qd-repatch) |
-| 会员授权：为仅供作者会员使用的 MOD 登录 | `HD2QD.License.dll` | [1.3.0](https://github.com/pat-pat-patrick/hd2-mod-license/releases/tag/plugin-v1.3.0) | [hd2-mod-license](https://github.com/pat-pat-patrick/hd2-mod-license) |
+| 会员授权：为仅供创作者会员使用的 MOD 登录 | `HD2QD.License.dll` | [1.3.0](https://github.com/pat-pat-patrick/hd2-mod-license/releases/tag/plugin-v1.3.0) | [hd2-mod-license](https://github.com/pat-pat-patrick/hd2-mod-license) |
 
-需要 HD2 Mod Quick Deploy 0.15.0 或更新版本（插件接口 Api 2）。默认均不安装。列表只收录管理器作者
+需要 HD2 Mod Quick Deploy 0.15.0 或更新版本（插件接口 Api 2）。默认均不安装。列表只收录管理器创作者
 本人的插件；其他插件仍可从文件添加。
 
 ## 添加插件
@@ -112,7 +112,7 @@ the complete example in [example/](example).
 |---|---|
 | `file` | 插件文件名，`HD2QD.<名称>.dll`。 |
 | `title`、`summary` | 列表中显示的名称和简介，英文。译文见 `locales/`（见下文）。 |
-| `author`、`repository` | 作者，以及发布该插件的 GitHub 仓库。 |
+| `author`、`repository` | 创作者，以及发布该插件的 GitHub 仓库。 |
 | `asset` | 要下载的 release 附件。 |
 | `api` | 插件使用的接口版本。 |
 | `wanted_by_file` | 可选：带有此文件的 MOD 会被标记为需要该插件。 |
