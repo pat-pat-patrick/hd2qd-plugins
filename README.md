@@ -32,12 +32,26 @@ settings folder, so a plugin added here shows in every copy of the manager witho
 | Field | Meaning |
 |---|---|
 | `file` | The plugin's file name, `HD2QD.<name>.dll`. |
-| `title`, `title_zh`, `summary`, `summary_zh` | What the list shows, in English and Chinese. |
+| `title`, `summary` | What the list shows, in English. Translations are in `locales/` (below). |
 | `author`, `repository` | Who makes it, and the GitHub repository whose releases carry it. |
 | `asset` | The release asset to download. |
 | `api` | The contract version it speaks. |
 | `wanted_by_file` | Optional: the manager marks the mods that ship this file as needing the plugin. |
 | `versions` | Each released version: `{version, tag, sha256}`. The manager checks a download against `sha256`. |
+
+## Translations
+
+`plugins.json` holds English only. Each language has one file of its own,
+`locales/<language>.json`, named by its language tag (`zh-CN`, `de`, `pt-BR`, ...): for each plugin
+file, its `title` and `summary` in that language. The manager reads the file of the language it
+shows; a plugin or a field missing there is shown in English. Adding a language is adding one
+file; nothing else changes.
+
+```json
+{
+  "HD2QD.Repatch.dll": { "title": "模型修复", "summary": "..." }
+}
+```
 
 ## Writing a plugin
 
@@ -80,12 +94,24 @@ the complete example in [example/](example).
 | 字段 | 含义 |
 |---|---|
 | `file` | 插件文件名，`HD2QD.<名称>.dll`。 |
-| `title`、`title_zh`、`summary`、`summary_zh` | 列表中显示的名称和简介，英文与中文。 |
+| `title`、`summary` | 列表中显示的名称和简介，英文。译文见 `locales/`（见下文）。 |
 | `author`、`repository` | 作者，以及发布该插件的 GitHub 仓库。 |
 | `asset` | 要下载的 release 附件。 |
 | `api` | 插件使用的接口版本。 |
 | `wanted_by_file` | 可选：带有此文件的 MOD 会被标记为需要该插件。 |
 | `versions` | 每个已发布的版本：`{version, tag, sha256}`。管理器下载后按 `sha256` 核对。 |
+
+## 翻译
+
+`plugins.json` 只包含英文。每种语言各有一个文件 `locales/<语言>.json`，以语言标记命名（`zh-CN`、
+`de`、`pt-BR` 等），其中按插件文件名列出该语言的 `title` 和 `summary`。管理器读取其当前显示语言的
+文件；文件中缺少的插件或字段以英文显示。新增一种语言只需新增一个文件，其他内容无需改动。
+
+```json
+{
+  "HD2QD.Repatch.dll": { "title": "模型修复", "summary": "..." }
+}
+```
 
 ## 编写插件
 
