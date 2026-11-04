@@ -106,7 +106,7 @@
     {
       "file": "HD2QD.SpeedDial.dll",
       "title": "Speed Dial for Liberty",
-      "summary": "Enters the stratagem codes that the mod Speed Dial for Liberty selects in the game as arrow-key presses, while HELLDIVERS 2 is the window in front. Requires the mod Speed Dial for Liberty (v0.24.0 or later), enabled in the library.",
+      "summary": "One-key stratagem calls: you press one key, and this plugin enters the stratagem code for you, with your own stratagem keys. Requires the mod Speed Dial for Liberty (v0.24.0 or later), enabled.",
       "author": "pat-pat-patrick",
       "repository": "pat-pat-patrick/hd2qd-speed-dial",
       "asset": "HD2QD.SpeedDial.dll",
@@ -117,6 +117,11 @@
           "version": "1.4.0",
           "tag": "v1.4.0",
           "sha256": "7cf7e7cf3680f87d8a8bc6b264a0e8fed9bd59fdee8d17f22817875c95cf4a31"
+        },
+        {
+          "version": "1.5.0",
+          "tag": "v1.5.0",
+          "sha256": "aa2393e662b5e1a2719e47c9639256f1efffaf4dc8c19c46fc1d553f6716c333"
         }
       ]
     }
