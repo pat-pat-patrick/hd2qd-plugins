@@ -102,6 +102,17 @@
           "sha256": "0a3d89e9750999dd555ec705d7a240bba61b0aa486e4e30788fef0514be4f0a8"
         }
       ]
+    },
+    {
+      "file": "HD2QD.SpeedDial.dll",
+      "title": "Speed Dial for Liberty",
+      "summary": "Enters the stratagem codes that the mod Speed Dial for Liberty selects in the game as arrow-key presses, while HELLDIVERS 2 is the window in front.",
+      "author": "pat-pat-patrick",
+      "repository": "pat-pat-patrick/hd2qd-speed-dial",
+      "asset": "HD2QD.SpeedDial.dll",
+      "api": 2,
+      "wanted_by_file": "HD2QD.SpeedDial.txt",
+      "versions": []
     }
   ]
 }

@@ -18,5 +18,9 @@
   "HD2QD.ResourceNames.dll": {
     "title": "资源名称",
     "summary": "从 HD2SDK 的仓库下载资源名称表和游戏包名称表，冲突和资源检查中显示资源的名称，而不是编号。需要 HD2 Mod Quick Deploy 0.16.0 或更新版本。"
+  },
+  "HD2QD.SpeedDial.dll": {
+    "title": "Speed Dial for Liberty",
+    "summary": "在《绝地潜兵2》位于前台时，将 MOD Speed Dial for Liberty 在游戏中选定的战备代码以方向键输入。"
   }
 }
