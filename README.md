@@ -13,6 +13,7 @@ built and released in its own repository, and [`plugins.json`](plugins.json) nam
 | Model repair: mod models made for an earlier version of the game, brought up to the current one | `HD2QD.Repatch.dll` | [1.1.0](https://github.com/pat-pat-patrick/hd2qd-repatch/releases/tag/v1.1.0) | [hd2qd-repatch](https://github.com/pat-pat-patrick/hd2qd-repatch) |
 | Member licenses: sign-in for mods available only to their author's members | `HD2QD.License.dll` | [1.3.0](https://github.com/pat-pat-patrick/hd2-mod-license/releases/tag/plugin-v1.3.0) | [hd2-mod-license](https://github.com/pat-pat-patrick/hd2-mod-license) |
 | Resource names: HD2SDK's resource and game archive name lists, downloaded from its repository, so conflicts and the asset check name resources (manager 0.16.0 or later) | `HD2QD.ResourceNames.dll` | [1.1.0](https://github.com/pat-pat-patrick/hd2qd-resource-names/releases/tag/v1.1.0) | [hd2qd-resource-names](https://github.com/pat-pat-patrick/hd2qd-resource-names) |
+| Speed Dial for Liberty: one-key stratagem calls. You press one key, and the plugin enters the stratagem code with your own stratagem keys. Requires the mod Speed Dial for Liberty (v0.24.0 or later), enabled, and the manager running while you play | `HD2QD.SpeedDial.dll` | [1.5.0](https://github.com/pat-pat-patrick/hd2qd-speed-dial/releases/tag/v1.5.0) | [hd2qd-speed-dial](https://github.com/pat-pat-patrick/hd2qd-speed-dial) |
 
 They need HD2 Mod Quick Deploy 0.15.0 or later (plugin Api 2). None is installed by default. The
 list holds the manager's author's plugins only; any other plugin can still be added from its file.
@@ -98,6 +99,7 @@ the complete example in [example/](example).
 | 模型修复：将为旧版游戏制作的 MOD 模型更新为当前游戏的格式 | `HD2QD.Repatch.dll` | [1.1.0](https://github.com/pat-pat-patrick/hd2qd-repatch/releases/tag/v1.1.0) | [hd2qd-repatch](https://github.com/pat-pat-patrick/hd2qd-repatch) |
 | 会员授权：为仅供创作者会员使用的 MOD 登录 | `HD2QD.License.dll` | [1.3.0](https://github.com/pat-pat-patrick/hd2-mod-license/releases/tag/plugin-v1.3.0) | [hd2-mod-license](https://github.com/pat-pat-patrick/hd2-mod-license) |
 | 资源名称：从 HD2SDK 的仓库下载资源名称表和游戏包名称表，冲突和资源检查中显示资源的名称（需要管理器 0.16.0 或更新） | `HD2QD.ResourceNames.dll` | [1.1.0](https://github.com/pat-pat-patrick/hd2qd-resource-names/releases/tag/v1.1.0) | [hd2qd-resource-names](https://github.com/pat-pat-patrick/hd2qd-resource-names) |
+| Speed Dial for Liberty：一键呼叫战备。你按一个键，插件用你自己的战备输入键替你输入战备代码。需要同时启用 MOD Speed Dial for Liberty（v0.24.0 或更新），游戏时管理器保持运行 | `HD2QD.SpeedDial.dll` | [1.5.0](https://github.com/pat-pat-patrick/hd2qd-speed-dial/releases/tag/v1.5.0) | [hd2qd-speed-dial](https://github.com/pat-pat-patrick/hd2qd-speed-dial) |
 
 需要 HD2 Mod Quick Deploy 0.15.0 或更新版本（插件接口 Api 2）。默认均不安装。列表只收录管理器创作者
 本人的插件；其他插件仍可从文件添加。
