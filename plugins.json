@@ -61,9 +61,9 @@
     },
     {
       "file": "HD2QD.Repatch.dll",
-      "title": "Model repair",
-      "summary": "After a game update, brings mod models made for an earlier version of the game up to the current format so that they load again; every repair can be undone.",
-      "author": "pat-pat-patrick",
+      "title": "Mod repair",
+      "summary": "Repairs mods that a game update broke: models that no longer load, sound mods that leave parts of the game silent, and subtitle mods that miss the game's new lines. Every repair can be undone. Sound bank and subtitle repair by x402.",
+      "author": "pat-pat-patrick, x402",
       "repository": "pat-pat-patrick/hd2qd-repatch",
       "asset": "HD2QD.Repatch.dll",
       "api": 2,
@@ -72,6 +72,11 @@
           "version": "1.1.0",
           "tag": "v1.1.0",
           "sha256": "0d0b302b32e5b821e6589e26c12de15cf3c6cb19388bc1bd62f6b4e1363b357a"
+        },
+        {
+          "version": "1.2.0",
+          "tag": "v1.2.0",
+          "sha256": "97536e102c8af7b92550d6413be515e62a159dd4d262fca5a3d7b9c3cff60842"
         }
       ]
     },
