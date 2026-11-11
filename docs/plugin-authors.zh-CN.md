@@ -36,7 +36,7 @@
 |---|---|
 | `Dictionary<string, object> ModNote(string modFolder, Dictionary<string, object> host)` | 在 MOD 行上显示的标记，或 `null`：`text`、`tip`（使用 `host["lang"]` 的语言）和 `colour`（`"Yellow"`、`"Blue"` 或 `"Muted"`）。管理器每次读取状态时对每个 MOD 调用一次，须保持开销很小。 |
 | `app.ico` | 不是类成员：插件自己的图标，即名为 `app.ico` 的嵌入资源（或同名的 WPF `Resource`）。官方列表为某个官方插件设置按钮（`"button": true`）时，管理器用它绘制标题栏按钮；其他插件没有标题栏按钮。 |
-| `byte[] Icon(Dictionary<string, object> host)` | 可选：运行时读取的图标，即一个 `.ico` 的字节，或 `null`。返回图标时，标题栏按钮用它代替 `app.ico`；返回 `null` 时仍用 `app.ico`。用于插件不能随附的图标，例如另一个程序的图标，从玩家电脑上的该程序读取。每次绘制标题栏都会调用，读取结果应自行缓存。 |
+| `byte[] Icon(Dictionary<string, object> host)` | 可选：运行时读取的图标，即一个 `.ico` 的字节，或 `null`。返回图标时，标题栏按钮用它代替 `app.ico`；返回 `null` 时仍用 `app.ico`。用于插件不能随附的图标，例如另一个程序的图标，从玩家电脑上的该程序读取。每次绘制标题栏都会调用，读取结果应自行缓存。0.19.0 之后的 Quick Deploy 才会读取；更早的版本使用 `app.ico`。 |
 | `static readonly string[][] Commands` | 添加到命令行的命令，每行为 `[名称, 说明]`。与管理器自身命令重名的会被忽略。 |
 | `int Run(string command, string[] args, TextWriter output, Dictionary<string, object> host)` | 运行 `Commands` 中的命令：`0` 完成，`1` 拒绝，`2` 命令行有误。抛出的异常按拒绝处理。 |
 | `bool Start(Dictionary<string, object> host)` | 窗口启动时在后台运行一次（续期、缓存等）。需要管理器重新读取状态时返回 `true`。 |
