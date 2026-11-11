@@ -171,9 +171,9 @@
       "button": true,
       "versions": [
         {
-          "version": "0.6.3",
-          "tag": "v0.6.3",
-          "sha256": "9d1eb0e7bd5621cd4a211d2a1914a97c4029d4df00aaea7c4c0da5a23cef877e"
+          "version": "0.7.0",
+          "tag": "v0.7.0",
+          "sha256": "93af0843a2f44d7a31c662f3fea02a578ce95b17bb61d85e6115fe6f3d1c1f91"
         }
       ]
     }
