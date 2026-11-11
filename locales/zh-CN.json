@@ -22,5 +22,9 @@
   "HD2QD.SpeedDial.dll": {
     "title": "Speed Dial for Liberty",
     "summary": "一键呼叫战备：你按一个键，本插件用你自己的战备输入键替你输入战备代码。需要同时启用 MOD Speed Dial for Liberty（v0.24.0 或更新）。"
+  },
+  "HD2QD.HellForge.dll": {
+    "title": "HellForge",
+    "summary": "启动 HellForge（离线版 Helldivers 2），并将其作为 Quick Deploy 的部署目标：库中的 MOD 按 HellForge 的游戏版本转换后部署，并提供对局、档案、设置、大厅与日志管理。"
   }
 }
