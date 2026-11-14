@@ -20,6 +20,11 @@
           "version": "1.20.0",
           "tag": "v1.20.0",
           "sha256": "dcdc5e759b16945822c0c31ccf8d9eac2492108ab2e7d65ecc539853ac2f2a9b"
+        },
+        {
+          "version": "1.20.1",
+          "tag": "v1.20.1",
+          "sha256": "1fdafe79c75383ceb80d2c53e8fe1b5ba72215b9902832c525df6e316b1d675a"
         }
       ]
     },
@@ -184,6 +189,11 @@
           "version": "0.9.4",
           "tag": "v0.9.4",
           "sha256": "87b0f26dc4fe473e9ec4d87a9fde1de9aaf7683750e883adf649906a187fb6fa"
+        },
+        {
+          "version": "0.10.1",
+          "tag": "v0.10.1",
+          "sha256": "6e213b47e5e226df771fc7a3a14bf2bb9d5ee14ec93921e1a8c32c5f05ff7563"
         }
       ]
     }
