@@ -26,5 +26,13 @@
   "HD2QD.HellForge.dll": {
     "title": "HellForge",
     "summary": "启动 HellForge（离线版 Helldivers 2），并将其作为 Quick Deploy 的部署目标：库中的 MOD 按 HellForge 的游戏版本转换后部署，并提供对局、档案编辑、设置、大厅与日志管理，会员授权 MOD 也可在其中使用。部署库中的 MOD 需要 Quick Deploy 0.20.0 或更新版本。"
+  },
+  "HD2QD.HD2Music.dll": {
+    "title": "HD2 音乐",
+    "summary": "管理器里的网易云音乐：Quick Deploy 0.25.0 以上是标签页，更早的版本是独立窗口。扫码、Cookie 或短信登录；歌单、每日推荐、私人 FM、电台与播客；播放、拖动进度、歌词同步，游戏内播放器、2D/3D 歌词与频谱照常工作。FFmpeg 内置在 DLL 中，首次使用时释放。"
+  },
+  "HD2QD.LobbyBrowser.dll": {
+    "title": "大厅浏览器",
+    "summary": "把 Helldivers 2 的公开大厅列成管理器的一个标签页（Quick Deploy 0.25.0 以上；更早的版本是独立窗口），自己挑要进的大厅，而不是靠游戏随机匹配：星球、战线、难度、人数、任务、区域、SOS、延迟、房主与时长，可排序；按星球、难度、任务、地图、战局效果与区域筛选，并可保存预设。"
   }
 }

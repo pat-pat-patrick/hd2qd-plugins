@@ -1,4 +1,44 @@
 {
   "format": 1,
-  "plugins": []
+  "plugins": [
+    {
+      "file": "HD2QD.HD2Music.dll",
+      "title": "HD2 Music",
+      "summary": "NetEase Cloud Music in the manager: a tab on Quick Deploy 0.25.0 and later, a window of its own before. QR-code, cookie or SMS sign-in; playlists, daily recommendations, private FM, radio and podcasts; playback with seek and synced lyrics, while the mod's in-game player, 2D/3D lyrics and spectrum keep working. FFmpeg is inside the DLL, extracted on first use.",
+      "author": "ahe-meow",
+      "repository": "ahe-meow/hd2qd-hd2music",
+      "asset": "HD2QD.HD2Music.dll",
+      "api": 2,
+      "license": "MIT",
+      "versions": [
+        {
+          "version": "2.0.3",
+          "tag": "v2.0.3",
+          "sha256": "1d9f8e4ae70b4b099c7ca6ab72a22bc4b4e92687403342aee4c49b2c1e3d9e7e"
+        }
+      ]
+    },
+    {
+      "file": "HD2QD.LobbyBrowser.dll",
+      "title": "Lobby Browser",
+      "summary": "Helldivers 2's public lobbies as a tab of the manager's window (Quick Deploy 0.25.0 and later) or a window of its own, so you pick the lobby you join instead of the game's random matchmaking: planet, front, difficulty, players, mission, region, SOS, ping, host and age; filters for planet, difficulty, mission, map, variant and region; presets.",
+      "author": "ahe-meow",
+      "repository": "ahe-meow/hd2qd-lobbybrowser",
+      "asset": "HD2QD.LobbyBrowser.dll",
+      "api": 2,
+      "license": "MIT",
+      "versions": [
+        {
+          "version": "1.9.9",
+          "tag": "v1.9.9",
+          "sha256": "c7dc772f2c9c7821369a98f09f018dedda1ffdbe845c8396a60657d74283df25"
+        },
+        {
+          "version": "1.10.0",
+          "tag": "v1.10.0",
+          "sha256": "a08a1ad6225434490c4c7d14f894f23d77bf9a3d9d49f93dd9a5e52546d6fe77"
+        }
+      ]
+    }
+  ]
 }
