@@ -1,4 +1,22 @@
 {
   "format": 1,
-  "plugins": []
+  "plugins": [
+    {
+      "file": "HD2QD.BiliMusic.dll",
+      "title": "Bilibili Audio",
+      "summary": "Bilibili audio player in the manager: search videos, play their audio, keep a local play history, and sign in by QR code or cookie to read your public favourites. A companion Lua mod shows what is playing in game.",
+      "author": "MoonlightSheep",
+      "repository": "MoonlightSheep/HD2QD-BiliMusic",
+      "asset": "HD2QD.BiliMusic.dll",
+      "api": 2,
+      "license": "MIT",
+      "versions": [
+        {
+          "version": "1.3.11",
+          "tag": "v1.3.11",
+          "sha256": "32040bc0cfc2a99e90c566d08ef9ce9dcc3f7de82952044a2be2a8632569b03b"
+        }
+      ]
+    }
+  ]
 }

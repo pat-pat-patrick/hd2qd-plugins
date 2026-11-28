@@ -26,5 +26,9 @@
   "HD2QD.HellForge.dll": {
     "title": "HellForge",
     "summary": "启动 HellForge（离线版 Helldivers 2），并将其作为 Quick Deploy 的部署目标：库中的 MOD 按 HellForge 的游戏版本转换后部署，并提供对局、档案编辑、设置、大厅与日志管理，会员授权 MOD 也可在其中使用。部署库中的 MOD 需要 Quick Deploy 0.20.0 或更新版本。"
+  },
+  "HD2QD.BiliMusic.dll": {
+    "title": "哔哩哔哩音频",
+    "summary": "管理器里的 B站音频播放器：搜索视频、播放音频、本地保存播放历史，扫码或 Cookie 登录后可读公开收藏夹。配合 HD2QD Bili Music 的 Lua mod，可在游戏内显示正在播放的曲目。"
   }
 }
