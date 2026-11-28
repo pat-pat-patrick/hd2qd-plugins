@@ -6,6 +6,8 @@
 #   3. publishes the release v1.2.3 with the DLL attached.
 # That is what the community list's check requires (README, Community plugins, Requirements 2).
 # Do not upload the DLL by hand afterwards: a file built anywhere else has no attestation.
+# A plugin built by a script rather than a project runs its script in the Build step instead
+# (for example ./build.ps1 -OutDir out); its assembly version must then match the tag.
 name: Release
 
 on:
