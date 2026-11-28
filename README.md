@@ -102,10 +102,14 @@ SHA-256 written here. Suggestions are welcome as issues or pull requests.
 
 To release a new version of an official plugin:
 
-1. Publish a release in the plugin's repository with the DLL attached under the name in `asset`.
-2. Add `{version, tag, sha256}` to the plugin's `versions` here: the release's tag, and the SHA-256
+1. Build it with its `build.bat`, which signs the DLL with the maintainer's key
+   (`hd2-mod-cli/tools/sign_plugin.py`; the key is kept outside every repository). Quick Deploy
+   0.26.0 and later show a signed build as an official plugin whatever its version, listed here or
+   not; earlier versions know an official plugin only by the SHA-256 written here.
+2. Publish a release in the plugin's repository with the DLL attached under the name in `asset`.
+3. Add `{version, tag, sha256}` to the plugin's `versions` here: the release's tag, and the SHA-256
    of the attached file as GitHub serves it.
-3. Push to `main`. Every copy of the manager offers the new version from then on; the manager
+4. Push to `main`. Every copy of the manager offers the new version from then on; the manager
    itself needs no release.
 
 Keep the format readable by the managers already released: add fields, never rename or remove one.
@@ -220,10 +224,13 @@ the complete example in [example/](example).
 
 发布官方插件的新版本：
 
-1. 在插件自己的仓库发布 release，附件文件名与 `asset` 一致。
-2. 在本仓库该插件的 `versions` 中加入 `{version, tag, sha256}`：release 的标签，以及 GitHub 上该附件的
+1. 用插件自己的 `build.bat` 构建，它会用维护者的私钥给 DLL 签名（`hd2-mod-cli/tools/sign_plugin.py`；私钥不在任何
+   仓库中）。Quick Deploy 0.26.0 及更新版本会把带签名的构建显示为官方插件，不论版本、不论是否已在本仓库登记；更早的版本
+   只按这里记录的 SHA-256 识别官方插件。
+2. 在插件自己的仓库发布 release，附件文件名与 `asset` 一致。
+3. 在本仓库该插件的 `versions` 中加入 `{version, tag, sha256}`：release 的标签，以及 GitHub 上该附件的
    SHA-256。
-3. 推送到 `main`。此后所有管理器都会提供新版本，管理器本身无需发布新版。
+4. 推送到 `main`。此后所有管理器都会提供新版本，管理器本身无需发布新版。
 
 列表格式须保持已发布的管理器能够读取：只能新增字段，不要改名或删除字段。
 
