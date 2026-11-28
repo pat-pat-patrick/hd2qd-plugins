@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: read
+  attestations: read    # gh attestation verify, in tools/check_community.py
 
 jobs:
   check:

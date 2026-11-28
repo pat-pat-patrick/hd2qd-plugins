@@ -157,5 +157,7 @@ embedded resources and reads them with `Words` ([`example/Words.cs`](../example/
 - To have players find your plugin in the manager's plugin store, list it in the community list
   ([`community.json`](../community.json)): see
   [Community plugins](../README.md#community-plugins) for the requirements (public source on
-  GitHub, an accepted licence, each version a release) and how to list it. Any plugin can also be
+  GitHub, an accepted licence, each version a release built by GitHub Actions with a build
+  provenance attestation, as [`example/release.yml`](../example/release.yml) does) and how to
+  list it. Any plugin can also be
   added from its file with **Add plugin…**.

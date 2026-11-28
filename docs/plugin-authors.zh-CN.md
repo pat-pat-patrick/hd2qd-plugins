@@ -151,5 +151,6 @@ public const string OverlayKey = "page down";   // "" ：玩家设置之前没�
 - 不得阻塞窗口：读取文件和访问网络请在后台线程进行。
 - 插件以管理器的权限运行。只读写插件需要的内容。
 - 希望玩家在管理器的插件商店中找到你的插件，请将它登记到社区列表（[`community.json`](../community.json)）：
-  条件（GitHub 上公开源码、许可证符合要求、每个版本都是 release）和登记方法见
+  条件（GitHub 上公开源码、许可证符合要求、每个版本都是由 GitHub Actions 构建并附带构建来源证明的
+  release，参见 [`example/release.yml`](../example/release.yml)）和登记方法见
   [社区插件](../README.md#社区插件)。任何插件也都可以通过“添加插件…”从文件添加。

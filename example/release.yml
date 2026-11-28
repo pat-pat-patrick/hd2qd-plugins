@@ -1,0 +1,45 @@
+# A release workflow for a community plugin. Copy it to .github/workflows/release.yml in the
+# plugin's repository and change PROJECT and DLL to the plugin's own. Pushing a tag such as
+# v1.2.3 then:
+#   1. builds the plugin on a runner GitHub hosts, with assembly version 1.2.3;
+#   2. has GitHub attest that the DLL was built from that tag's commit (build provenance);
+#   3. publishes the release v1.2.3 with the DLL attached.
+# That is what the community list's check requires (README, Community plugins, Requirements 2).
+# Do not upload the DLL by hand afterwards: a file built anywhere else has no attestation.
+name: Release
+
+on:
+  push:
+    tags: ["v*.*.*"]
+
+permissions:
+  contents: write       # publish the release
+  id-token: write       # sign the attestation
+  attestations: write   # store the attestation
+
+env:
+  PROJECT: HD2QD.Example.csproj
+  DLL: HD2QD.Example.dll
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Build
+        shell: pwsh
+        run: |
+          $version = "$env:GITHUB_REF_NAME".TrimStart("v")
+          dotnet build $env:PROJECT -c Release -o out -p:Version=$version
+
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@v4
+        with:
+          subject-path: out/${{ env.DLL }}
+
+      - name: Publish the release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$env:GITHUB_REF_NAME" "out/$env:DLL" --verify-tag --title "$env:GITHUB_REF_NAME" --generate-notes

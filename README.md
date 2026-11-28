@@ -69,24 +69,34 @@ versions do not read it.
    `LICENSE` file as one of these licences (SPDX): `MIT`, `Apache-2.0`, `BSD-2-Clause`,
    `BSD-3-Clause`, `ISC`, `0BSD`, `Unlicense`, `MPL-2.0`, `LGPL-2.1`, `LGPL-3.0`, `GPL-2.0`,
    `GPL-3.0`. Other licences, including `AGPL-3.0` and closed source, are not listed.
-2. **Released on GitHub.** Each version is a release (not a draft or pre-release) of that
-   repository, with the DLL attached, at most 25 MB. The manager downloads only from GitHub and
-   from this list's mirror on Cloudflare; nothing is listed from other hosts.
+2. **Built and released on GitHub.** Each version is a release (not a draft or pre-release) of
+   that repository, with the DLL attached, at most 25 MB. The DLL is built by GitHub Actions on a
+   runner GitHub hosts, from the commit the release's tag names, and carries a build provenance
+   attestation ([`actions/attest-build-provenance`](https://github.com/actions/attest-build-provenance)).
+   This shows that the file players download is the one the published source makes. A DLL built
+   on your own computer or on a self-hosted runner is not listed. [`example/release.yml`](example/release.yml)
+   is a workflow that does all of this when you push a tag. The manager downloads only from GitHub
+   and from this list's mirror on Cloudflare; nothing is listed from other hosts.
 3. **A plugin of this manager.** The file is `HD2QD.<name>.dll`, a name no official plugin uses, with
    a public type `Plugin` and `Api = 2` ([docs/plugin-authors.md](docs/plugin-authors.md)). Its
    assembly version is the version listed.
 4. **Short texts.** `title` at most 60 characters, `summary` at most 400, in English. Translations
    go in `locales/` (below), in the same pull request.
 
+Requirement 2's build by GitHub Actions applies from 2026-11-29: versions listed before then stay
+listed, and every version added after it must meet it.
+
 ### Listing a plugin or a new version
 
-1. Publish the release in your repository.
+1. Publish the release in your repository by pushing its tag, so that your release workflow builds,
+   attests and attaches the DLL.
 2. Open a pull request against `main` that adds your entry to `community.json`, or adds
    `{version, tag, sha256}` to your entry's `versions`. `sha256` is the SHA-256 of the attached
    file as GitHub serves it.
 3. The pull request's check (`tools/check_community.py`) reads your repository and release:
    licence, tag, SHA-256, that the file is a .NET assembly with a public `Plugin`, its version,
-   and that the source of the tag can be downloaded. A version already listed cannot change.
+   the file's build provenance attestation (`gh attestation verify`), and that the source of the
+   tag can be downloaded. A version already listed cannot change.
 4. The maintainer merges the pull request once the check passes. From then on, every copy of the
    manager offers the version, and players who added an earlier one are offered the update.
 
@@ -196,21 +206,27 @@ the complete example in [example/](example).
 1. **公开源码**：插件仓库在 GitHub 上公开，且 GitHub 将其 `LICENSE` 文件识别为以下许可证之一（SPDX）：
    `MIT`、`Apache-2.0`、`BSD-2-Clause`、`BSD-3-Clause`、`ISC`、`0BSD`、`Unlicense`、`MPL-2.0`、
    `LGPL-2.1`、`LGPL-3.0`、`GPL-2.0`、`GPL-3.0`。其他许可证（包括 `AGPL-3.0`）和闭源插件不予登记。
-2. **在 GitHub 上发布**：每个版本都是该仓库的一个 release（不是草稿或预发布），附带 DLL，大小不超过
-   25 MB。管理器只从 GitHub 和本列表在 Cloudflare 上的镜像下载，不登记其他网站上的文件。
+2. **在 GitHub 上构建并发布**：每个版本都是该仓库的一个 release（不是草稿或预发布），附带 DLL，大小
+   不超过 25 MB。DLL 须由 GitHub Actions 在 GitHub 托管的 runner 上，从该 release 的 tag 所指的提交
+   构建，并附带构建来源证明（[`actions/attest-build-provenance`](https://github.com/actions/attest-build-provenance)），
+   以证明玩家下载的文件正是由公开源码生成的。在自己电脑上或自托管 runner 上构建的 DLL 不予登记。
+   [`example/release.yml`](example/release.yml) 是一个现成的 workflow，推送 tag 时会自动完成上述步骤。
+   管理器只从 GitHub 和本列表在 Cloudflare 上的镜像下载，不登记其他网站上的文件。
 3. **是本管理器的插件**：文件名为 `HD2QD.<名称>.dll`，且不与官方插件重名；包含公开类型 `Plugin` 和
    `Api = 2`（[docs/plugin-authors.zh-CN.md](docs/plugin-authors.zh-CN.md)）。程序集版本即登记的版本。
 4. **简短的文字**：`title` 不超过 60 个字符，`summary` 不超过 400 个字符，使用英文。译文放在
    `locales/`（见下文），在同一个拉取请求中提交。
 
+第 2 条中由 GitHub Actions 构建的要求自 2026-11-29 起执行：此前已登记的版本保留，此后加入的每个版本都须满足。
+
 ### 登记插件或新版本
 
-1. 在你的仓库中发布 release。
+1. 推送 tag，由你的 release workflow 构建 DLL、生成证明并附加到 release。
 2. 向 `main` 提交拉取请求：在 `community.json` 中加入你的条目，或在你的条目的 `versions` 中加入
    `{version, tag, sha256}`。`sha256` 是 GitHub 提供的附件文件的 SHA-256。
 3. 拉取请求的检查（`tools/check_community.py`）会读取你的仓库和 release：许可证、tag、SHA-256、
-   文件是否为包含公开 `Plugin` 的 .NET 程序集、程序集版本，以及该 tag 的源码能否下载。已登记的版本
-   不能修改。
+   文件是否为包含公开 `Plugin` 的 .NET 程序集、程序集版本、文件的构建来源证明
+   （`gh attestation verify`），以及该 tag 的源码能否下载。已登记的版本不能修改。
 4. 检查通过后由维护者合并。此后每个管理器都会提供这个版本，已添加旧版本的玩家会收到更新提示。
 
 镜像会在每个登记版本的文件旁保存该版本的源码压缩包，因此即使仓库被删除，列表提供过的所有代码仍可查阅。

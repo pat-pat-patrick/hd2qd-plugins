@@ -12,15 +12,20 @@ GitHub's API, with $GITHUB_TOKEN when set. Exits 1 when a check fails.
 It checks what can be checked without reading the source: the repository is public and its
 licence is one of LICENCES, each listed version is a release of that repository whose file has
 the listed SHA-256 and is a .NET assembly with a public type Plugin whose assembly version is the
-listed version, and the source of each version can be downloaded. It does not review the code:
-community plugins are listed as not reviewed.
+listed version, the file was built by GitHub Actions from the commit of that version's tag (a
+build provenance attestation, verified with `gh attestation verify`, so gh must be installed),
+and the source of each version can be downloaded. It does not review the code: community plugins
+are listed as not reviewed.
 """
 import argparse
 import hashlib
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
+import tempfile
 import urllib.error
 import urllib.request
 
@@ -38,6 +43,12 @@ API = 2
 FILE_MAX = 25 * 1024 * 1024          # what one file of the Cloudflare mirror may be
 TEXT_MAX = {"title": 60, "summary": 400}
 REQUIRED = ("file", "title", "summary", "author", "repository", "license", "api", "versions")
+
+# Each version is built by GitHub Actions, on a runner GitHub hosts, from the commit its tag names,
+# and carries a build provenance attestation (actions/attest-build-provenance): then the file the
+# list offers is the one the tag's source makes, not a file built elsewhere (the user, 2026-11-29). The versions
+# listed before the rule are named here; this set only gets shorter.
+BEFORE_PROVENANCE = {("hd2qd.bilimusic.dll", "1.3.11")}
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -190,11 +201,49 @@ def check_version(c, p, v, w):
         c.fail(w, "%s has no public type named Plugin" % asset)
     if version != v["version"]:
         c.fail(w, "the assembly's version is %s, the list says %s" % (version, v["version"]))
+    if (p["file"].lower(), v["version"]) not in BEFORE_PROVENANCE:
+        why = provenance(p["repository"], v["tag"], data)
+        if why:
+            c.fail(w, "%s was not shown to be built by GitHub Actions from the commit of tag %s: %s (README, Requirements 2)"
+                   % (asset, v["tag"], why))
     # the source of this version: what the mirror keeps beside the file
     try:
         get("https://api.github.com/repos/%s/zipball/%s" % (p["repository"], urllib.request.quote(v["tag"], safe="")), method="HEAD")
     except urllib.error.HTTPError as e:
         c.fail(w, "the source at tag %s cannot be downloaded (%d)" % (v["tag"], e.code))
+
+
+def provenance(repo, tag, data):
+    """None when the file carries a build provenance attestation that GitHub signed for a workflow
+    run of repo, on a runner GitHub hosts, at the commit tag names; otherwise why not."""
+    try:
+        commit = get("https://api.github.com/repos/%s/commits/%s" % (repo, urllib.request.quote(tag, safe="")))["sha"]
+    except urllib.error.HTTPError as e:
+        return "the commit of tag %s cannot be read (%d)" % (tag, e.code)
+    exe = shutil.which("gh")
+    if not exe:
+        return "gh (GitHub CLI) is needed to verify the attestation and is not installed here"
+    env = dict(os.environ)
+    if env.get("GITHUB_TOKEN") and not env.get("GH_TOKEN"):
+        env["GH_TOKEN"] = env["GITHUB_TOKEN"]
+    with tempfile.TemporaryDirectory() as d:
+        path = os.path.join(d, "file.dll")
+        with open(path, "wb") as f:
+            f.write(data)
+        try:
+            # the commit, not the ref: a release workflow may run on a branch at the tag's commit
+            r = subprocess.run([exe, "attestation", "verify", path, "--repo", repo,
+                                "--source-digest", commit, "--deny-self-hosted-runners"],
+                               capture_output=True, text=True, encoding="utf-8", errors="replace", env=env, timeout=300)
+        except subprocess.TimeoutExpired:
+            return "gh attestation verify did not answer in 5 minutes"
+    if r.returncode == 0:
+        return None
+    text = r.stderr + "\n" + r.stdout
+    if "HTTP 404" in text or "no attestations found" in text:
+        return "the file has no build provenance attestation in %s (actions/attest-build-provenance)" % repo
+    lines = [x.strip() for x in text.splitlines() if x.strip()]
+    return " / ".join(lines[-3:]) or "gh attestation verify failed (%d)" % r.returncode
 
 
 def check_locales(c, files):
