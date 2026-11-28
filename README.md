@@ -25,7 +25,7 @@ Official plugins are the maintainer's own; plugins by other authors are listed a
 ## Adding a plugin
 
 1. In HD2 Mod Quick Deploy, open the Plugins page (the jigsaw piece beside the gear).
-2. A listed plugin: on the **Browse** tab, find it by searching or with the filters (All,
+2. A listed plugin: on the **Plugin store** tab, find it by searching or with the filters (All,
    Official, Community), select it and choose **Download and add**. The manager downloads the
    newest release named in [`plugins.json`](plugins.json) (official) or
    [`community.json`](community.json) (community) and adds it only if its SHA-256 matches. A
@@ -57,7 +57,7 @@ settings folder, so a plugin added here shows in every copy of the manager witho
 ## Community plugins
 
 Any author can list a plugin here, so that players find it in the manager: on the Plugins page's
-**Browse** tab, marked Community, with **Download and add**. Community plugins are not reviewed. The manager
+**Plugin store** tab, marked Community, with **Download and add**. Community plugins are not reviewed. The manager
 says so beside each one and asks the player before adding one; a community plugin never gets a
 button in the manager's title bar. The list is [`community.json`](community.json), in the same
 shape as `plugins.json` (without `button`). Quick Deploy shows it from version 0.26.0; earlier
@@ -155,7 +155,7 @@ the complete example in [example/](example).
 ## 添加插件
 
 1. 在 HD2 Mod Quick Deploy 中打开“插件”页（齿轮旁的拼图按钮）。
-2. 列表中的插件：在“浏览”标签页中搜索或用筛选（全部、官方、社区）找到它，选中后点击**下载并添加**。
+2. 列表中的插件：在“插件商店”标签页中搜索或用筛选（全部、官方、社区）找到它，选中后点击**下载并添加**。
    管理器会下载 [`plugins.json`](plugins.json)（官方）或 [`community.json`](community.json)（社区）中
    记录的最新版本，SHA-256 一致才会添加。社区插件未经审核，添加前需确认你信任其作者。
 3. 其他插件：点击“添加插件…”，选择其 `HD2QD.<名称>.dll`，或将文件拖到插件页上。
@@ -183,7 +183,7 @@ the complete example in [example/](example).
 
 ## 社区插件
 
-任何创作者都可以在这里登记插件，让玩家在管理器中找到它：插件页的“浏览”标签页，标有“社区”，带“下载并添加”按钮。
+任何创作者都可以在这里登记插件，让玩家在管理器中找到它：插件页的“插件商店”标签页，标有“社区”，带“下载并添加”按钮。
 社区插件未经审核。管理器会在每个社区插件旁注明这一点，并在添加前询问玩家；社区插件不会在管理器标题栏中拥有
 按钮。列表文件是 [`community.json`](community.json)，格式与 `plugins.json` 相同（没有 `button`）。Quick Deploy 0.26.0 起显示该列表，更早的版本不读取它。
 

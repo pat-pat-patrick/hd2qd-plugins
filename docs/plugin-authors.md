@@ -154,7 +154,7 @@ embedded resources and reads them with `Words` ([`example/Words.cs`](../example/
 - Write the text a player reads in a formal register. English is required; each other language is a file of its own.
 - Never block the window: read files and the network off the UI thread.
 - A plugin runs with the manager's permissions. Read and write only what the plugin needs.
-- To have players find your plugin in the manager's Browse tab, list it in the community list
+- To have players find your plugin in the manager's plugin store, list it in the community list
   ([`community.json`](../community.json)): see
   [Community plugins](../README.md#community-plugins) for the requirements (public source on
   GitHub, an accepted licence, each version a release) and how to list it. Any plugin can also be
